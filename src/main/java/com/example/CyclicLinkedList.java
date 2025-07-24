@@ -25,7 +25,9 @@ public class CyclicLinkedList {
         Link end = current;
 
         do {
+            if (current == null) break;
             if (current.value == value) return current;
+            if (current.next == null) break;
             current = current.next;
 
         } while (current != end);
@@ -33,7 +35,32 @@ public class CyclicLinkedList {
         return null;
     }
 
+    public void deleteN(int key) {
+        if (current == null) return;
+        if (current.next == null && current.value == key) {
+            current = null;
+            return;
+        }
+
+        Link previous = current;
+        current = current.next;
+
+        for (int i = 0; i < key; i++) {
+            previous = current;
+            current = current.next;
+        }
+
+        previous.next = current.next;
+        current = previous.next;
+    }
+
     public void delete(int value) {
+        if (current == null) return;
+        if (current.next == null && current.value == value) {
+            current = null;
+            return;
+        }
+
         Link previous = current;
         Link end = current.next;
         current = current.next;
@@ -42,6 +69,7 @@ public class CyclicLinkedList {
             if (current.value == value) {
                 previous.next = current.next;
                 current = previous.next;
+                break;
             } else {
                 previous = current;
                 current = current.next;
@@ -56,7 +84,9 @@ public class CyclicLinkedList {
         Link end = current;
 
         do {
+            if (current == null) break;
             sj.add(String.valueOf(current.value));
+            if (current.next == null) break;
             current = current.next;
 
         } while (current != end);
