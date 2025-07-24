@@ -15,6 +15,9 @@ class App {
 
         list.delete(2);
 
+        System.out.println(list);
+        list.deleteN(33);
+
         System.out.println(list.find(3));
         System.out.println(list);
     }
