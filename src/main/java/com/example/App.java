@@ -2,23 +2,19 @@ package com.example;
 
 class App {
     public static void main(String[] args) {
-
         CyclicLinkedList list = new CyclicLinkedList();
+        int josephusNum = 7;
 
-        list.add(1);
-        list.add(2);
-        list.add(2);
-        list.add(2);
-        list.add(3);
-        list.add(4);
-        list.add(5);
-
-        list.delete(2);
-
+        for (int i = 1; i <= 20; i++) {
+            list.add(i);
+        }
+        list.find(1);
         System.out.println(list);
-        list.deleteN(33);
 
-        System.out.println(list.find(3));
+        for (int i = 0; i < 20; i++) {
+            list.deleteN(4);
+        }
+
         System.out.println(list);
     }
 }
