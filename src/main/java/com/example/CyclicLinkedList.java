@@ -37,7 +37,7 @@ public class CyclicLinkedList {
 
     public void deleteN(int key) {
         if (current == null) return;
-        if (current.next == null && current.value == key) {
+        if (current.next == null) {
             current = null;
             return;
         }
@@ -45,7 +45,7 @@ public class CyclicLinkedList {
         Link previous = current;
         current = current.next;
 
-        for (int i = 0; i < key; i++) {
+        for (int i = 1; i < key; i++) {
             previous = current;
             current = current.next;
         }
@@ -94,7 +94,7 @@ public class CyclicLinkedList {
         return "CyclicLinkedList { " + sj + " }";
     }
 
-    private static class Link {
+    static class Link {
         int value;
         Link next;
 
